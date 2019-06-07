@@ -1,0 +1,15 @@
+generate model:
+Student:
+rails g model student name:text:uniq cpf:text:uniq dt_birth:date telephone:integer gender:text payment_type:text
+
+Institution:
+rails g model institution name:text:uniq cnpj:text:uniq type:text
+
+Matriculation:
+rails g model matriculation total:decimal invoice:integer invoice_expire_at:integer course_name:text institution:references student:references
+
+Invoices:
+rails g model invoice total:decimal expire_at:date matriculation:references status:text
+
+Migrate DBs:
+rails db:migrate
