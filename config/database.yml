@@ -25,7 +25,7 @@ development:
   <<: *default
   database: projeto_billinho_development
   username: postgres
-  password: rafael9510
+  password: xxxxxxx
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,7 +61,7 @@ test:
   <<: *default
   database: projeto_billinho_test
   username: postgres
-  password: rafael9510
+  password: xxxxxxx
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,4 +86,4 @@ production:
   <<: *default
   database: projeto_billinho_production
   username: postgres
-  password: rafael9510
+  password: xxxxxx
