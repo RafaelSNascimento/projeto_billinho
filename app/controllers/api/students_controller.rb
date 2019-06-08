@@ -20,14 +20,14 @@ class Api::StudentsController < ApplicationController
 
   # DELETE /students/:id
   def destroy
-      @student.destroy
-      head :no_content
+    @student.destroy
+    head :no_content
   end
 
   # UPDATE /students/:id
   def update
-      @student.update(student_params)
-      head :no_content
+    @student.update(student_params)
+    head :no_content
   end
 
   private

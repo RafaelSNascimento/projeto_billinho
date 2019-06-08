@@ -14,6 +14,13 @@ rails g model invoice total:decimal expire_at:date matriculation:references stat
 Migrate DBs:
 rails db:migrate
 
-
 Faker:: 
 https://github.com/stympy/faker
+
+ActiveRecords Validations:
+https://edgeguides.rubyonrails.org/active_record_validations.html
+
+Notes:
+i had change column telephone to bigint because int aceppts only 4 bytes, telephone number generally have more than 4 bytes.
+i had change column gender to limit 1, because it will be 'M' or 'F'.
+i had change column type name to is_type because type column name is reserved for storing the class in case of inheritance.

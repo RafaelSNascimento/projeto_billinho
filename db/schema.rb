@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_023732) do
+ActiveRecord::Schema.define(version: 2019_06_08_142847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_06_07_023732) do
   create_table "institutions", force: :cascade do |t|
     t.text "name", null: false
     t.text "cnpj", null: false
-    t.text "type", null: false
+    t.text "is_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cnpj"], name: "index_institutions_on_cnpj", unique: true
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_06_07_023732) do
     t.text "name", null: false
     t.text "cpf", null: false
     t.date "dt_birth"
-    t.integer "telephone"
+    t.bigint "telephone"
     t.text "gender", null: false
     t.text "payment_type", null: false
     t.datetime "created_at", null: false
