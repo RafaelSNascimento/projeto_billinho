@@ -66,7 +66,7 @@ RSpec.describe "Institutions API", type: :request do
   end
 
   describe "PUT /api/institutions/:id" do
-    let(:valid_attributes) { { name: "Rafael Nascimento" } }
+    let(:valid_attributes) { { name: "Anhanguera" } }
     context "When the record exists" do
       before { put "/api/institutions/#{institution_id}", params: valid_attributes, as: :json }
 

@@ -3,14 +3,14 @@ class Api::InstitutionsController < ApplicationController
 
   #GET /institutions
   def index
-    @institutions = Institution.all
-    json_response(@institutions)
+    institutions = Institution.all
+    json_response(institutions)
   end
 
   #POST /institutions
   def create
-    @institution = Institution.create!(institution_params)
-    json_response(@institution, :created)
+    institution = Institution.create!(institution_params)
+    json_response(institution, :created)
   end
 
   #GET /institutions/:id

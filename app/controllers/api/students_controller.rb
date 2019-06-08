@@ -3,14 +3,14 @@ class Api::StudentsController < ApplicationController
 
   #GET /students
   def index
-    @students = Student.all
-    json_response(@students)
+    students = Student.all
+    json_response(students)
   end
 
   # POST /students
   def create
-    @student = Student.create!(student_params)
-    json_response(@student, :created)
+    student = Student.create!(student_params)
+    json_response(student, :created)
   end
 
   # GET /students/:id
