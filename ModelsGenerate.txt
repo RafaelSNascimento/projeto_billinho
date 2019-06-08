@@ -13,3 +13,7 @@ rails g model invoice total:decimal expire_at:date matriculation:references stat
 
 Migrate DBs:
 rails db:migrate
+
+
+Faker:: 
+https://github.com/stympy/faker
