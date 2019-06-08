@@ -20,6 +20,9 @@ https://github.com/stympy/faker
 ActiveRecords Validations:
 https://edgeguides.rubyonrails.org/active_record_validations.html
 
+RSpec:
+https://github.com/rspec/rspec-rails
+
 Notes:
 i had change column telephone to bigint because int aceppts only 4 bytes, telephone number generally have more than 4 bytes.
 i had change column gender to limit 1, because it will be 'M' or 'F'.

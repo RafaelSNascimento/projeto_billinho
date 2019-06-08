@@ -10,7 +10,12 @@ Rails.application.routes.draw do
       # matriculations per students api
       resources :matriculations
     end
-    # matriculations apí
-    resources :matriculations
+    # matriculations api
+    resources :matriculations do
+      resources :invoices
+    end
+
+    # matriculations api
+    resources :invoices
   end
 end

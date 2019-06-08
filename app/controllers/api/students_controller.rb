@@ -27,7 +27,11 @@ class Api::StudentsController < ApplicationController
   # UPDATE /students/:id
   def update
     @student.update(student_params)
-    head :no_content
+    if (@student.errors.size === 0)
+      head :no_content
+    else
+      json_response(@student.errors, 422)
+    end
   end
 
   private

@@ -27,7 +27,11 @@ class Api::InstitutionsController < ApplicationController
   # UPDATE /institutions/:id
   def update
     @institution.update(institution_params)
-    head :no_content
+    if (@institution.errors.size === 0)
+      head :no_content
+    else
+      json_response(@institution.errors, 422)
+    end
   end
 
   private

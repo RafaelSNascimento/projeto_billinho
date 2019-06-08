@@ -7,8 +7,13 @@ class Api::MatriculationsController < ApplicationController
   #GET /student/:student_id/matriculations
   #GET /matriculations
   def index
-    matriculations = Matriculation.all
-    json_response(matriculations)
+    if (@student.nil? == false)
+      json_response(@student.matriculations)
+    elsif (@institution.nil? == false)
+      json_response(@institution.matriculations)
+    else
+      json_response(Matriculation.all)
+    end
   end
 
   # POST /matriculations
@@ -21,7 +26,7 @@ class Api::MatriculationsController < ApplicationController
       # get current date and set day to the invoice expire day
       calcInvoiceDate = DateTime.now.change(day: invoiceExpire)
       # verify if the invoice expire day was less than the current day
-      if (DateTime.now.day > invoiceExpire)
+      if (DateTime.now.day >= invoiceExpire)
         # if is, add one month to the calcInvoiceDate
         calcInvoiceDate = calcInvoiceDate + 1.month
       end
@@ -30,13 +35,13 @@ class Api::MatriculationsController < ApplicationController
       # add the first invoice
       invoices = [{ total: invoiceTotal, matriculation_id: matriculation.id, status: "Aberta", expire_at: calcInvoiceDate }]
       # start looping to add the others invoices
-      for i in 1..matriculation.invoice
+      for i in 2..matriculation.invoice
         # add one month for each looping
         calcInvoiceDate = calcInvoiceDate + 1.months
         invoices.push({ total: invoiceTotal, matriculation_id: matriculation.id, status: "Aberta", expire_at: calcInvoiceDate })
       end
       # create the invoices in database and add the callback value to matriculation.invoices
-      matriculation.invoices = Invoice.create!(invoices)
+      matriculation = matriculation.attributes.merge({ :invoiceList => Invoice.create!(invoices) })
     end
     json_response(matriculation, :created)
   end
