@@ -60,7 +60,7 @@ RSpec.describe "Students API", type: :request do
       end
 
       it "returns a validation failure message" do
-        expect(response.body).to match(/Validation failed: Name can't be blank, Cpf can't be blank, Gender can't be blank, Payment type can't be blank/)
+        expect(response.body).to match(/Validation failed: Name can't be blank, Cpf can't be blank, Cpf is not a number, Gender can't be blank, Payment type can't be blank/)
       end
     end
   end
